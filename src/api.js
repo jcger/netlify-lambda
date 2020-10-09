@@ -7,7 +7,10 @@ const router = express.Router();
 router.get("/", (req, res) => {
   const site = req.headers.host;
   console.log(site);
-  res.cookie("serversidecookie", "yeah", { domain: `.${site}` });
+  res.cookie("serversidecookie", "yeah", {
+    domain: `.${site}`,
+    sameSite: "Lax",
+  });
   res.json({ message: "hello world" });
 });
 
