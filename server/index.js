@@ -4,9 +4,8 @@ const app = express();
 
 app.get("/", (req, res) => {
   res.cookie("serversidecookie", "yeah");
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.write("<h1>Hello from Express.js!</h1>");
-  res.end();
+  res.setHeader("Content-Type", "application/json");
+  res.end(JSON.stringify({ hello: "world" }));
 });
 
 module.exports = app;
