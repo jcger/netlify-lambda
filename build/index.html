@@ -7,5 +7,11 @@
   </head>
   <body>
     <div id="app"></div>
+    <script type="module">
+      fetch("https://silly-payne-lambda.netlify.app/.netlify/functions/index")
+        .then((raw) => raw.json())
+        .then(console.log)
+        .catch(console.error);
+    </script>
   </body>
 </html>
