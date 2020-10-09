@@ -1,12 +1,14 @@
 const serverless = require("serverless-http");
 const express = require("express");
-const app = express();
 
-app.get("/", (req, res) => {
+const app = express();
+const router = express.Router();
+
+router.get("/", (req, res) => {
   // res.cookie("serversidecookie", "yeah");
-  res.setHeader("Content-Type", "application/json");
-  res.end(JSON.stringify({ hello: "world" }));
+  res.json({ message: "hello world" });
 });
 
-module.exports = app;
+app.use("/.netlify/functions/api", router);
+
 module.exports.handler = serverless(app);
