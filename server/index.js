@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.cookie("serversidecookie", "yeah");
+  // res.cookie("serversidecookie", "yeah");
   res.setHeader("Content-Type", "application/json");
   res.end(JSON.stringify({ hello: "world" }));
 });
