@@ -5,7 +5,9 @@ const app = express();
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  res.cookie("serversidecookie", "yeah");
+  const site = req.headers.host;
+  console.log(site);
+  res.cookie("serversidecookie", "yeah", { domain: `.${site}` });
   res.json({ message: "hello world" });
 });
 
